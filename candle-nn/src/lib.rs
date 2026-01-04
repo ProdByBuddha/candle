@@ -17,6 +17,7 @@
 
 pub mod activation;
 pub mod batch_norm;
+pub mod bitlinear;
 pub mod conv;
 pub mod cpu_flash_attention;
 pub mod embedding;
@@ -40,6 +41,7 @@ pub mod var_map;
 
 pub use activation::{prelu, Activation, PReLU};
 pub use batch_norm::{batch_norm, BatchNorm, BatchNormConfig};
+pub use bitlinear::{bit_linear, bit_linear_no_bias, BitLinear};
 pub use conv::{
     conv1d, conv1d_no_bias, conv2d, conv2d_no_bias, conv_transpose1d, conv_transpose1d_no_bias,
     conv_transpose2d, conv_transpose2d_no_bias, Conv1d, Conv1dConfig, Conv2d, Conv2dConfig,

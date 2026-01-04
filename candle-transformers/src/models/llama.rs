@@ -144,12 +144,12 @@ impl Config {
 
 #[derive(Debug, Clone)]
 pub struct Cache {
-    masks: HashMap<usize, Tensor>,
+    pub masks: HashMap<usize, Tensor>,
     pub use_kv_cache: bool,
-    kvs: Vec<Option<(Tensor, Tensor)>>,
-    cos: Tensor,
-    sin: Tensor,
-    device: Device,
+    pub kvs: Vec<Option<(Tensor, Tensor)>>,
+    pub cos: Tensor,
+    pub sin: Tensor,
+    pub device: Device,
 }
 
 fn calculate_default_inv_freq(cfg: &Config) -> Vec<f32> {
@@ -215,7 +215,7 @@ impl Cache {
         })
     }
 
-    fn mask(&mut self, t: usize) -> Result<Tensor> {
+    pub fn mask(&mut self, t: usize) -> Result<Tensor> {
         if let Some(mask) = self.masks.get(&t) {
             Ok(mask.clone())
         } else {
